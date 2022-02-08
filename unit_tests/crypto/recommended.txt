@@ -1,0 +1,9 @@
+./crypto_functions_compare_hashes.sol_0.smt2
+./crypto_functions_compare_hashes.sol_1.smt2
+./crypto_functions_compare_hashes.sol_2.smt2
+./crypto_functions_fail.sol_0.smt2
+./crypto_functions_fail.sol_1.smt2
+./crypto_functions_fail.sol_2.smt2
+./crypto_functions_fail.sol_3.smt2
+./crypto_functions_not_same.sol_0.smt2
+./crypto_functions_over_blocks.sol_0.smt2

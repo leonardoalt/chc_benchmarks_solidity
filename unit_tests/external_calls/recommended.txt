@@ -1,0 +1,6 @@
+./call_with_value_1.sol_1.smt2
+./call_with_value_3.sol_0.smt2
+./external_call_with_value_1.sol_0.smt2
+./call_with_value_2.sol_0.smt2
+./external_call_with_value_3.sol_1.smt2
+./external_call_with_value_2.sol_1.smt2
