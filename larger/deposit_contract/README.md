@@ -7,7 +7,7 @@ It was formally verified by [Runtime Verification](https://runtimeverification.c
 including the main property that the incremental Merkle tree is equivalent to
 the standard one, but it remains an important benchmark for automated tools.
 
-The smt2 file in this directory represents the Horn query that checks the
+File `deposit_contract.smt2` in this directory represents the Horn query that checks the
 functional property that the `assert(false)` at the end of function `deposit`
 is not reachable.
 
@@ -18,3 +18,7 @@ This expression is used twice in the contract, once in function
 `get_deposit_root` and once in function `deposit`.
 The expressions are semantically equivalent even though the compiled bytecode
 may be different.
+
+However, that file still contains BitVector expressions.  File
+`deposit_no_bv_safe.smt2` is an overapproximation of the original one without
+BitVector operations.
