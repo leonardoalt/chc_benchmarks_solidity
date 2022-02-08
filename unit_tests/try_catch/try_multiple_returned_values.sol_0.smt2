@@ -1,0 +1,268 @@
+(set-logic HORN)
+
+(declare-datatypes ((|state_type| 0)) (((|state_type| (|balances| (Array Int Int))))))
+(declare-datatypes ((|bytes_tuple| 0)) (((|bytes_tuple| (|bytes_tuple_accessor_array| (Array Int Int)) (|bytes_tuple_accessor_length| Int)))))
+(declare-datatypes ((|tx_type| 0)) (((|tx_type| (|block.basefee| Int) (|block.chainid| Int) (|block.coinbase| Int) (|block.difficulty| Int) (|block.gaslimit| Int) (|block.number| Int) (|block.timestamp| Int) (|blockhash| (Array Int Int)) (|msg.data| |bytes_tuple|) (|msg.sender| Int) (|msg.sig| Int) (|msg.value| Int) (|tx.gasprice| Int) (|tx.origin| Int)))))
+(declare-datatypes ((|ecrecover_input_type| 0)) (((|ecrecover_input_type| (|hash| Int) (|v| Int) (|r| Int) (|s| Int)))))
+(declare-datatypes ((|crypto_type| 0)) (((|crypto_type| (|ecrecover| (Array |ecrecover_input_type| Int)) (|keccak256| (Array |bytes_tuple| Int)) (|ripemd160| (Array |bytes_tuple| Int)) (|sha256| (Array |bytes_tuple| Int))))))
+(declare-datatypes ((|abi_type| 0)) (((|abi_type|))))
+(declare-datatypes ((|tuple(uint256,bool)| 0)) (((|tuple(uint256,bool)| (|tuple(uint256,bool)_accessor_0| Int) (|tuple(uint256,bool)_accessor_1| Bool)))))
+(declare-fun |interface_0_D_8_0| (Int |abi_type| |crypto_type| |state_type| ) Bool)
+(declare-fun |nondet_interface_1_D_8_0| (Int Int |abi_type| |crypto_type| |state_type| |state_type| ) Bool)
+(declare-fun |summary_constructor_2_D_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (crypto_0 |crypto_type|) (error_0 Int) (state_0 |state_type|) (this_0 Int) (tx_0 |tx_type|))
+(=> (= error_0 0) (nondet_interface_1_D_8_0 error_0 this_0 abi_0 crypto_0 state_0 state_0))))
+
+
+(declare-fun |summary_3_function_d__7_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Bool ) Bool)
+(declare-fun |summary_4_function_d__7_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (crypto_0 |crypto_type|) (error_0 Int) (error_1 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_3_1 Int))
+(=> (and (and (nondet_interface_1_D_8_0 error_0 this_0 abi_0 crypto_0 state_0 state_1) true) (and (= error_0 0) (summary_4_function_d__7_8_0 error_1 this_0 abi_0 crypto_0 tx_0 state_1 state_2 x_3_1 b_5_1))) (nondet_interface_1_D_8_0 error_1 this_0 abi_0 crypto_0 state_0 state_2))))
+
+
+(declare-fun |interface_5_C_58_0| (Int |abi_type| |crypto_type| |state_type| Int Int ) Bool)
+(declare-fun |nondet_interface_6_C_58_0| (Int Int |abi_type| |crypto_type| |state_type| Int Int |state_type| Int Int ) Bool)
+(declare-fun |summary_constructor_7_C_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Int Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (error_0 Int) (error_1 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_3_1 Int))
+(=> (= error_1 0) (nondet_interface_6_C_58_0 error_1 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0 state_0 x_10_0 d_13_0))))
+
+
+(declare-fun |summary_8_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int ) Bool)
+(declare-fun |summary_9_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_3_1 Int))
+(=> (and (and (nondet_interface_6_C_58_0 error_1 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) true) (and (= error_1 0) (summary_9_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_1 x_10_1 d_13_1 state_2 x_10_2 d_13_2))) (nondet_interface_6_C_58_0 error_2 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0 state_2 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and true (= error_0 0)) (summary_3_function_d__7_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_3_1 b_5_1))))
+
+
+(declare-fun |contract_initializer_10_D_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| ) Bool)
+(declare-fun |contract_initializer_entry_11_D_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (= state_1 state_0) (= error_0 0)) true) (contract_initializer_entry_11_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1))))
+
+
+(declare-fun |contract_initializer_after_init_12_D_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (contract_initializer_entry_11_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1) true) true) (contract_initializer_after_init_12_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (contract_initializer_after_init_12_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1) true) true) (contract_initializer_10_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1))))
+
+
+(declare-fun |implicit_constructor_entry_13_D_8_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (and (and (= state_1 state_0) (= error_0 0)) true) true) (>= (select (|balances| state_1) this_0) (|msg.value| tx_0))) (implicit_constructor_entry_13_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (implicit_constructor_entry_13_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1) (and (contract_initializer_10_D_8_0 error_1 this_0 abi_0 crypto_0 tx_0 state_1 state_2) true)) (> error_1 0)) (summary_constructor_2_D_8_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 state_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (c_26_1 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_24_1 Int) (x_3_1 Int))
+(=> (and (and (implicit_constructor_entry_13_D_8_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1) (and (= error_1 0) (and (contract_initializer_10_D_8_0 error_1 this_0 abi_0 crypto_0 tx_0 state_1 state_2) true))) true) (summary_constructor_2_D_8_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 state_2))))
+
+
+(declare-fun |block_14_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(declare-fun |block_15_f_56_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int))
+(block_14_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1)))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int))
+(=> (and (and (block_14_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (and (and (and (= state_1 state_0) (= error_0 0)) (and (and true (= x_10_1 x_10_0)) (= d_13_1 d_13_0))) true) true)) true) (block_15_f_56_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(declare-fun |block_16_return_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(declare-fun |block_17_try_header_f_55_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(declare-fun |block_18_f_56_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(declare-fun |block_19_try_clause_40f_40_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(declare-fun |block_20_try_clause_54f_54_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int))
+(=> (and (and (block_15_f_56_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= x_10_2 expr_18_1) (and (=> true (and (>= expr_18_1 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_18_1 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_18_1 expr_17_0) (and (=> true (and (>= expr_16_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_16_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_16_0 x_10_1) (and (=> true true) (and (= expr_17_0 0) (and (= c_26_1 false) (and (= x_24_1 0) true)))))))))) true) (block_17_try_header_f_55_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_2 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int))
+(=> (and (and (block_17_try_header_f_55_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (=> true true) (and (= expr_20_0 d_13_1) true))) true) (block_20_try_clause_54f_54_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(declare-fun |nondet_call_21_0| (Int Int |abi_type| |crypto_type| |state_type| Int Int |state_type| Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (nondet_interface_6_C_58_0 error_1 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1 state_2 x_10_2 d_13_2) (nondet_call_21_0 error_1 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1 state_2 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_17_try_header_f_55_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (nondet_call_21_0 error_1 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1 state_2 x_10_2 d_13_2) (and (=> true true) (and (= expr_20_0 d_13_1) true)))) (> error_1 0)) (summary_8_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_2 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_17_try_header_f_55_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= c_26_2 (|tuple(uint256,bool)_accessor_1| expr_22_1)) (and (= x_24_2 (|tuple(uint256,bool)_accessor_0| expr_22_1)) (and (= (|tuple(uint256,bool)_accessor_1| expr_22_1) b_5_4) (and (= (|tuple(uint256,bool)_accessor_0| expr_22_1) x_3_4) (and (= error_1 0) (and (nondet_call_21_0 error_1 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1 state_2 x_10_2 d_13_2) (and (=> true true) (and (= expr_20_0 d_13_1) true))))))))) true) (block_19_try_clause_40f_40_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_2 x_10_2 d_13_2 x_24_2 c_26_2))))
+
+
+(declare-fun |block_22_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_19_try_clause_40f_40_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= expr_31_1 (= expr_29_0 expr_30_0)) (and (=> true true) (and (= expr_30_0 0) (and (=> true (and (>= expr_29_0 0) (<= expr_29_0 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (= expr_29_0 x_24_1) true)))))) (and (not expr_31_1) (= error_1 1))) (block_22_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (block_22_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (summary_8_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1))))
+
+
+(declare-fun |block_23_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_19_try_clause_40f_40_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= expr_36_1 (not expr_35_0)) (and (= expr_35_0 c_26_1) (and (= error_1 error_0) (and (= expr_31_1 (= expr_29_0 expr_30_0)) (and (=> true true) (and (= expr_30_0 0) (and (=> true (and (>= expr_29_0 0) (<= expr_29_0 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (= expr_29_0 x_24_1) true))))))))) (and (not expr_36_1) (= error_2 2))) (block_23_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (block_23_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (summary_8_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_19_try_clause_40f_40_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= error_2 error_1) (and (= expr_36_1 (not expr_35_0)) (and (= expr_35_0 c_26_1) (and (= error_1 error_0) (and (= expr_31_1 (= expr_29_0 expr_30_0)) (and (=> true true) (and (= expr_30_0 0) (and (=> true (and (>= expr_29_0 0) (<= expr_29_0 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (= expr_29_0 x_24_1) true)))))))))) true) (block_18_f_56_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(declare-fun |block_24_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_20_try_clause_54f_54_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= expr_44_1 (= expr_42_0 expr_43_0)) (and (=> true true) (and (= expr_43_0 0) (and (=> true (and (>= expr_42_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_42_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_42_0 x_10_1) true)))))) (and (not expr_44_1) (= error_1 3))) (block_24_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (block_24_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (summary_8_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1))))
+
+
+(declare-fun |block_25_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_20_try_clause_54f_54_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= expr_50_1 (= expr_48_0 expr_49_0)) (and (=> true true) (and (= expr_49_0 1) (and (=> true (and (>= expr_48_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_48_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_48_0 x_10_1) (and (= error_1 error_0) (and (= expr_44_1 (= expr_42_0 expr_43_0)) (and (=> true true) (and (= expr_43_0 0) (and (=> true (and (>= expr_42_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_42_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_42_0 x_10_1) true)))))))))))) (and (not expr_50_1) (= error_2 4))) (block_25_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (block_25_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (summary_8_function_f__57_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_20_try_clause_54f_54_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (= error_2 error_1) (and (= expr_50_1 (= expr_48_0 expr_49_0)) (and (=> true true) (and (= expr_49_0 1) (and (=> true (and (>= expr_48_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_48_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_48_0 x_10_1) (and (= error_1 error_0) (and (= expr_44_1 (= expr_42_0 expr_43_0)) (and (=> true true) (and (= expr_43_0 0) (and (=> true (and (>= expr_42_0 (- 0 57896044618658097711785492504343953926634992332820282019728792003956564819968)) (<= expr_42_0 57896044618658097711785492504343953926634992332820282019728792003956564819967))) (and (= expr_42_0 x_10_1) true))))))))))))) true) (block_18_f_56_58_0 error_2 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_18_f_56_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) true) true) (block_16_return_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_16_return_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) true) true) (summary_8_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1))))
+
+
+(declare-fun |block_26_function_f__57_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| Int Int |state_type| Int Int Int Bool ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(block_26_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1)))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (block_26_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1 x_24_1 c_26_1) (and (summary_8_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_2 x_10_1 d_13_1 state_3 x_10_2 d_13_2) (and (= state_2 (|state_type| (store (|balances| state_1) this_0 (+ (select (|balances| state_1) this_0) funds_5_0)))) (and (and (>= (+ (select (|balances| state_1) this_0) funds_5_0) 0) (<= (+ (select (|balances| state_1) this_0) funds_5_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935)) (and (>= funds_5_0 (|msg.value| tx_0)) (and (and (and (and (and (and (and (and (and (and (and (and (and (>= (|block.basefee| tx_0) 0) (<= (|block.basefee| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935)) (and (>= (|block.chainid| tx_0) 0) (<= (|block.chainid| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.coinbase| tx_0) 0) (<= (|block.coinbase| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|block.difficulty| tx_0) 0) (<= (|block.difficulty| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.gaslimit| tx_0) 0) (<= (|block.gaslimit| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.number| tx_0) 0) (<= (|block.number| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.timestamp| tx_0) 0) (<= (|block.timestamp| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|msg.sender| tx_0) 0) (<= (|msg.sender| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|msg.value| tx_0) 0) (<= (|msg.value| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|tx.origin| tx_0) 0) (<= (|tx.origin| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|tx.gasprice| tx_0) 0) (<= (|tx.gasprice| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (and (and (and (and (and (= (|msg.value| tx_0) 0) (= (|msg.sig| tx_0) 638722032)) (= (select (|bytes_tuple_accessor_array| (|msg.data| tx_0)) 0) 38)) (= (select (|bytes_tuple_accessor_array| (|msg.data| tx_0)) 1) 18)) (= (select (|bytes_tuple_accessor_array| (|msg.data| tx_0)) 2) 31)) (= (select (|bytes_tuple_accessor_array| (|msg.data| tx_0)) 3) 240)) (>= (|bytes_tuple_accessor_length| (|msg.data| tx_0)) 4))) (and (and (and (and (= state_1 state_0) (= error_0 0)) (and (and true (= x_10_1 x_10_0)) (= d_13_1 d_13_0))) true) true))))))) true) (summary_9_function_f__57_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_3 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (interface_5_C_58_0 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0) true) (and (summary_9_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) (= error_0 0))) (interface_5_C_58_0 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1))))
+
+
+(declare-fun |contract_initializer_27_C_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Int Int Int ) Bool)
+(declare-fun |contract_initializer_entry_28_C_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Int Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (= state_1 state_0) (= error_0 0)) (and (and true (= x_10_1 x_10_0)) (= d_13_1 d_13_0))) (contract_initializer_entry_28_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1))))
+
+
+(declare-fun |contract_initializer_after_init_29_C_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Int Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (contract_initializer_entry_28_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1) true) true) (contract_initializer_after_init_29_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (contract_initializer_after_init_29_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1) true) true) (contract_initializer_27_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1))))
+
+
+(declare-fun |implicit_constructor_entry_30_C_58_0| (Int Int |abi_type| |crypto_type| |tx_type| |state_type| |state_type| Int Int Int Int ) Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (and (and (= state_1 state_0) (= error_0 0)) (and (and true (= x_10_1 x_10_0)) (= d_13_1 d_13_0))) (and (and true (= x_10_1 0)) (= d_13_1 0))) (>= (select (|balances| state_1) this_0) (|msg.value| tx_0))) (implicit_constructor_entry_30_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (implicit_constructor_entry_30_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1) (and (contract_initializer_27_C_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_1 state_2 x_10_1 d_13_1 x_10_2 d_13_2) true)) (> error_1 0)) (summary_constructor_7_C_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 state_2 x_10_0 d_13_0 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (implicit_constructor_entry_30_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1) (and (= error_1 0) (and (contract_initializer_27_C_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_1 state_2 x_10_1 d_13_1 x_10_2 d_13_2) true))) true) (summary_constructor_7_C_58_0 error_1 this_0 abi_0 crypto_0 tx_0 state_0 state_2 x_10_0 d_13_0 x_10_2 d_13_2))))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int))
+(=> (and (and (summary_constructor_7_C_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 state_1 x_10_0 d_13_0 x_10_1 d_13_1) true) (and (and (and (and (and (and (and (and (and (and (and (and (and (>= (|block.basefee| tx_0) 0) (<= (|block.basefee| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935)) (and (>= (|block.chainid| tx_0) 0) (<= (|block.chainid| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.coinbase| tx_0) 0) (<= (|block.coinbase| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|block.difficulty| tx_0) 0) (<= (|block.difficulty| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.gaslimit| tx_0) 0) (<= (|block.gaslimit| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.number| tx_0) 0) (<= (|block.number| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|block.timestamp| tx_0) 0) (<= (|block.timestamp| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|msg.sender| tx_0) 0) (<= (|msg.sender| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|msg.value| tx_0) 0) (<= (|msg.value| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (and (>= (|tx.origin| tx_0) 0) (<= (|tx.origin| tx_0) 1461501637330902918203684832716283019655932542975))) (and (>= (|tx.gasprice| tx_0) 0) (<= (|tx.gasprice| tx_0) 115792089237316195423570985008687907853269984665640564039457584007913129639935))) (= (|msg.value| tx_0) 0)) (= error_0 0))) (interface_5_C_58_0 this_0 abi_0 crypto_0 state_1 x_10_1 d_13_1))))
+
+
+(declare-fun |error_target_6_0| () Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (b_5_5 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int) (x_3_5 Int))
+(=> (and (and (interface_5_C_58_0 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0) true) (and (summary_9_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) (= error_0 1))) error_target_6_0)))
+
+
+(declare-fun |error_target_7_0| () Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (b_5_5 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int) (x_3_5 Int))
+(=> (and (and (interface_5_C_58_0 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0) true) (and (summary_9_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) (= error_0 2))) error_target_7_0)))
+
+
+(declare-fun |error_target_8_0| () Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (b_5_5 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int) (x_3_5 Int))
+(=> (and (and (interface_5_C_58_0 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0) true) (and (summary_9_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) (= error_0 3))) error_target_8_0)))
+
+
+(declare-fun |error_target_9_0| () Bool)
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (b_5_5 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int) (x_3_5 Int))
+(=> (and (and (interface_5_C_58_0 this_0 abi_0 crypto_0 state_0 x_10_0 d_13_0) true) (and (summary_9_function_f__57_58_0 error_0 this_0 abi_0 crypto_0 tx_0 state_0 x_10_0 d_13_0 state_1 x_10_1 d_13_1) (= error_0 4))) error_target_9_0)))
+
+
+(assert
+(forall ( (abi_0 |abi_type|) (b_5_1 Bool) (b_5_2 Bool) (b_5_3 Bool) (b_5_4 Bool) (b_5_5 Bool) (c_26_0 Bool) (c_26_1 Bool) (c_26_2 Bool) (c_26_3 Bool) (crypto_0 |crypto_type|) (d_13_0 Int) (d_13_1 Int) (d_13_2 Int) (d_13_3 Int) (error_0 Int) (error_1 Int) (error_2 Int) (expr_16_0 Int) (expr_17_0 Int) (expr_18_1 Int) (expr_20_0 Int) (expr_22_1 |tuple(uint256,bool)|) (expr_29_0 Int) (expr_30_0 Int) (expr_31_1 Bool) (expr_35_0 Bool) (expr_36_1 Bool) (expr_42_0 Int) (expr_43_0 Int) (expr_44_1 Bool) (expr_48_0 Int) (expr_49_0 Int) (expr_50_1 Bool) (funds_5_0 Int) (state_0 |state_type|) (state_1 |state_type|) (state_2 |state_type|) (state_3 |state_type|) (this_0 Int) (tx_0 |tx_type|) (x_10_0 Int) (x_10_1 Int) (x_10_2 Int) (x_10_3 Int) (x_24_0 Int) (x_24_1 Int) (x_24_2 Int) (x_24_3 Int) (x_3_1 Int) (x_3_2 Int) (x_3_3 Int) (x_3_4 Int) (x_3_5 Int))
+(=> error_target_9_0 false)))
+(check-sat)
