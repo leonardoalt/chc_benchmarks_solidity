@@ -1,0 +1,2 @@
+./bytes.sol_0_no_adts.smt2
+./string.sol_0_no_adts.smt2

@@ -1,0 +1,1 @@
+./assignment_contract_member_variable_array.sol_4_no_adts.smt2

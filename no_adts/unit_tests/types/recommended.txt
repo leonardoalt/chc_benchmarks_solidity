@@ -1,0 +1,1 @@
+./address_staticcall.sol_1_no_adts.smt2
