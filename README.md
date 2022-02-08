@@ -9,3 +9,11 @@ This repo contains CHC benchmarks from 2 sources:
 The `unit_tests` directory is further classified into the test focus, whereas
 the `large` directory is separated by the application where the benchmark came
 from.
+
+The directory `no_adts` contains the same benchmarks/structure as this, with
+`unit_tests` and `larger`, where each benchmark was transformed using
+https://github.com/leonardoalt/adt_transform/ to remove ADTs.
+A benchmark in the `no_adts` directory named `a_no_adts.smt2` has an equivalent
+one in this directory named `a.smt2`.
+Benchmarks with ADTs that could not be transformed due to a limitation in the
+ADT transform tool do not have a correspondent one without ADTs.

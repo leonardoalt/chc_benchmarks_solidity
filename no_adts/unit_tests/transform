@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+outname=$(basename $1 ".smt2")_no_adts.smt2
+echo "Transforming $1 into $outname"
+~/devel/adt_transform/target/debug/adt_transform $1 > $outname

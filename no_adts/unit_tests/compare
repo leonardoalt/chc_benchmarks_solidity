@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+og=$(basename "$1" "_no_adts.smt2").smt2
+#echo "Running z3 $og"
+out1=$(z3 timeout=2000 "$og")
+#echo "Running z3 $1"
+out2=$(z3 timeout=2000 "$1")
+
+if [ "$out1" != "$out2" ]
+then
+	echo "Diff $1"
+	echo "$out1"
+	echo "$out2"
+else
+	echo "ok"
+fi
